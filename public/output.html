@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Отгрузки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+    <header>
+        <meta charset="UTF-8">
+        <div class = "hed"> <h1>Главная</h1></div>
+        <nav class="navbar navbar-expand-lg fixed-top ">
+          <a class="nav-link" href="index.html">Главная</a>
+         <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <ul class="navbar-nav mr-4">
+              
+                <li class="nav-item">
+                  <a class="nav-link " href="items.html">Каталог</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="input.html">Поступления</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="output.html">Отгрузки</a>
+                </li>
+              </ul>
+              
+            </div>
+         </nav>
+    </header>
+    <div class="line"></div>
+    <div class = "content">
+        <section>
+            <table>
+                <tr>
+                    <td>Id товара</td>
+                    <td>Тип товара</td>
+                    <td>Название товара</td>
+                    <td>Производитель</td>
+                    <td>Количество отгруженного товара</td>
+                    <td>Количество на складе</td>
+                </tr>
+                    <tr th:each="card : ${cardslist}">
+                        <td th:text="${card.id}"></td>
+                        <td th:text="${card.number}"></td>
+                        <td th:text="${card.date_expiration}"></td>
+                        <td th:text="${card.cvv}"></td>
+                        <td th:text="${card.amount}"></td>
+                        <td th:text="${card.getUser().toString()}"></td>
+                    </tr>
+                </table>
+        </section>
+    </div>
+    <div class="line"></div>
+    <footer>
+        <b> © 2023 | Тихменев Петр | Все права защищены </b>
+    </footer>
+</body>
+</html>

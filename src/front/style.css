@@ -17,10 +17,17 @@ p {
     font-weight: 400;
 }
 .description {
-    font-size: 14px;
-    font-style: italic;
-    line-height: 16px;
+    font-size: 18px;
+    line-height: 20px;
     text-align: left;
+    white-space: pre-wrap;
+}
+.item_more {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: left;
+    white-space: pre-wrap;
 }
 .prop {
     font-style: inherit;
@@ -34,6 +41,22 @@ p {
     line-height: 16px;
     text-align: left;
     margin: 15px;
+}
+.item {
+    font-size: 18px;
+    line-height: 20px;
+    vertical-align: top;
+    margin: 15px;
+    padding: 15px;
+    display: inline-block;
+}
+.item_details {
+    font-size: 18px;
+    line-height: 20px;
+    vertical-align: top;
+    margin: 15px;
+    padding: 15px;
+    display: inline-block;
 }
 table, td {
     margin: 15px;

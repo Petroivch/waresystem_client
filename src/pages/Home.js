@@ -7,7 +7,7 @@ class Home extends Component {
     return (
       <div className="App-home">
         <Header />
-        <div>Welcome to the Warehouse system!</div>
+        <h1>Welcome to the Warehouse system!</h1>
         <Footer />
       </div>
     );

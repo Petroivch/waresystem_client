@@ -1,43 +1,51 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Item from '../components/Item';
-
-
 import '../App.css';
 import '../front/style.css';
+import axios from 'axios';
+import { NavLink } from "react-router-dom";
 
 class ItemList extends Component {
+  state = {
+    products: []
+  }
 
   render() {
-    console.log(getItems());
-
     return (
       <div className="App">
         <Header />
+        <h2 align = "left">Каталог</h2>
           <div class = "content">
-          <section>
-            <Item name="Logitech Pebble M350" image="LogitechPebbleM350.jpg" id="1" />
-            <Item name="Logitech Pebble M351" image="LogitechPebbleM350.jpg" id="2" />
-            <Item name="Logitech Pebble M352" image="LogitechPebbleM350.jpg" id="3" />
-            <Item name="Logitech Pebble M353" image="LogitechPebbleM350.jpg" id="4" />
-          </section>
+            {
+            this.state.products.map(product =>
+                  <div className="App-item">
+                  <div class = "item_list">
+                      <span><img width="200px" height="200px" align alt={ product.ProductName } src={ product.Image }></img></span>
+                      <span class="item" >
+                      <NavLink to={'/item/' + product.Id}>{product.ProductName}</NavLink>
+                        <br/><br/>
+                        Склад: {product.WareName}
+                        <br/>
+                        Остаток: {product.Quantity} шт.
+                        </span>
+                  </div>
+            </div>    
+               )}
         </div>
         <Footer />
       </div>
     );
   }
+  componentDidMount() {
+    //https://cors-anywhere.herokuapp.com/{url}
+    axios.get('http://localhost:3002/productlist')
+    //axios.get('http://localhost:3000/t.json')
+      .then(res => {
+        const products = res.data;
+        this.setState({ products });
+      })
+  }
 }
 
 export default ItemList;
-
-function getItems() {
-    return fetch('http://localhost:3002/products')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      return responseJson;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
- }

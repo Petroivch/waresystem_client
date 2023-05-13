@@ -2,18 +2,17 @@ import React from 'react';
 
 import axios from 'axios';
 
-export default class PersonList extends React.Component {
+export default class Products extends React.Component {
   state = {
-    persons: []
+    products: []
   }
-
   componentDidMount() {
     //https://cors-anywhere.herokuapp.com/{url}
-    axios.get('http://192.168.8.112:3002/products')
+    axios.get('http://localhost:3002/products')
     //axios.get('http://localhost:3000/t.json')
       .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
+        const products = res.data;
+        this.setState({ products });
       })
   }
 
@@ -25,4 +24,4 @@ export default class PersonList extends React.Component {
     )
   }
 }
-//delete
+

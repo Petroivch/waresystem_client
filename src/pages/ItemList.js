@@ -38,9 +38,7 @@ class ItemList extends Component {
     );
   }
   componentDidMount() {
-    //https://cors-anywhere.herokuapp.com/{url}
     axios.get('http://localhost:3002/productlist')
-    //axios.get('http://localhost:3000/t.json')
       .then(res => {
         const products = res.data;
         this.setState({ products });

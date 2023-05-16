@@ -41,9 +41,7 @@ class Input extends React.Component  {
   }
 
   componentDidMount() {
-    //https://cors-anywhere.herokuapp.com/{url}
     axios.get('http://localhost:3002/invoicelist')
-    //axios.get('http://localhost:3000/t.json')
       .then(res => {
         const invoices = res.data;
         invoices.forEach(element => {if (element.InvoiceType != "приход" )
